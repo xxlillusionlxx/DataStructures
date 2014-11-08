@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jason A Dale</title>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="bootstrap.min.css" rel="stylesheet"></link>
+    <link href="style.css" rel="stylesheet"></link>
+  </head>
+  <body>
+  		
+  <div class="chart"><svg></svg></div>
+  <div class="col-md-3">
+      <div class="input-group">
+        <input type="text" class="form-control">
+        <span class="input-group-btn">
+          <button class="btn btn-default add" type="button">Add</button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </div>
+    <div class="col-md-3">
+      <div class="input-group">
+        <input type="text" class="form-control remove">
+        <span class="input-group-btn">
+          <button class="btn btn-default rmv" type="button">Remove</button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </div>
+  
+
+
+  <script src="http://d3js.org/d3.v3.min.js"  charset="utf-8"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="draw.js"></script>
+  <script src="linkedlist.js"></script>
+  <script>
+        
+        linkedList.add(1);
+        linkedList.add(2);
+        linkedList.add(3);
+        linkedList.add(4);
+        linkedList.remove(2);
+
+        var string = linkedList.toString();
+        var size = linkedList.size();
+
+        
+
+        document.write(string + " and " + size);
+
+        $('.add').click(function() {
+          var num = parseInt( $('.form-control').val() );
+
+          if(num === NaN) {
+            alert("Enter a number");
+          } else {
+            linkedList.add(num);
+            draw();
+          }
+        });
+
+        $('.rmv').click(function() {
+          var num = parseInt( $('.remove').val() );
+
+          if(isNaN(num) || num === undefined || num === null) {
+            alert("Enter a number");
+          } else {
+            linkedList.remove(num);
+            rmvDraw();
+          }
+        });
+        draw();
+    </script>
+    <script src="arrows.js"></script>
+
+  </body>
+</html>
