@@ -1,8 +1,8 @@
 function addIt(list) {
 	if(list.next === null)
-				return list.data;
-			else {
-				return (list.data + addIt(list.next));
+		return list.data;
+	else {
+		return (list.data + addIt(list.next));
 	}
 }
 
